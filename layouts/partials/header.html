@@ -1,0 +1,23 @@
+<header id="masthead" class="site-header">
+  <div class="navbar">
+    <div class="site-branding">
+      <a href="/" class="custom-logo-link" rel="home">
+        <img width="409" height="100" src="/img/dp-logo4.png" class="custom-logo" alt="{{ site.Title }}">
+      </a>
+      <p class="site-title"><a href="/" rel="home">{{ site.Title }}</a></p>
+      <p class="site-description">{{ site.Params.description }}</p>
+    </div>
+    <nav id="site-navigation" class="main-navigation" aria-label="Main navigation">
+      <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Toggle navigation"></button>
+      <div class="menu-main-menu-container">
+        <ul id="primary-menu" class="menu">
+          {{ range site.RegularPages.ByWeight }}
+          <li class="menu-item">
+            <a href="{{ .RelPermalink }}"{{ if eq $.RelPermalink .RelPermalink }} aria-current="page"{{ end }}>{{ .Title }}</a>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>

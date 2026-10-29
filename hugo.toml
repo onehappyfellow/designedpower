@@ -1,0 +1,11 @@
+baseURL = 'https://designedpower.net/'
+locale = 'en-US'
+title = 'Designed Power'
+disableKinds = ['taxonomy', 'term', 'RSS']
+
+[params]
+  description = 'Engineered Electrical Equipment, Power Quality, and Energy Storage'
+
+# The initial migration preserves the existing page HTML in version control.
+[security]
+  allowContent = ['^text/html$']

@@ -1,0 +1,11 @@
+/* WordPress custom-logo visibility settings, retained for the static layout. */
+.site-title,
+.site-description {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.footer-logo {
+  display: block;
+  margin: 2rem auto;
+}

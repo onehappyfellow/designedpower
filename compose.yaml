@@ -1,0 +1,10 @@
+services:
+  hugo:
+    image: ghcr.io/gohugoio/hugo:v0.168.0@sha256:1fb8fe7f417abd5802d86747d297728aa48078d763159e7dff6559fe3f8bb8e7
+    working_dir: /project
+    entrypoint: ["hugo"]
+    volumes:
+      - .:/project
+    ports:
+      - "127.0.0.1:1313:1313"
+    command: ["server", "--bind", "0.0.0.0", "--baseURL", "http://localhost:1313/", "--disableFastRender", "--destination", "/tmp/hugo-preview"]

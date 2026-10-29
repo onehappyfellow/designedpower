@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="{{ site.Language.Locale }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if not .IsHome }}{{ .Title }} – {{ end }}{{ site.Title }}</title>
+  <meta name="description" content="{{ site.Params.description }}">
+  <link rel="canonical" href="{{ .Permalink }}">
+  <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+  <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
+  <link rel="stylesheet" href="{{ "css/site.css" | relURL }}">
+  <script src="{{ "js/site.js" | relURL }}" defer></script>
+</head>
+<body class="{{ if .IsHome }}home{{ else }}page{{ end }}">
+  <div id="page" class="site">
+    <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+    {{ partial "header.html" . }}
+    <div id="content" class="site-content">
+      {{ block "main" . }}{{ .Content }}{{ end }}
+    </div>
+    {{ partial "footer.html" . }}
+  </div>
+</body>
+</html>
