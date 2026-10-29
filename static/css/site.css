@@ -9,3 +9,220 @@
   display: block;
   margin: 2rem auto;
 }
+
+/* Full-bleed hero with compact controls over the photograph. */
+.slideshow {
+  position: relative;
+  height: clamp(22rem, 42vw, 550px);
+  background: #182d41;
+  color: #fff;
+}
+.slideshow-slides,
+.slideshow-slide,
+.slideshow-slide img {
+  width: 100%;
+  height: 100%;
+}
+.slideshow-slide img {
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+.slideshow-controls:not([hidden]) {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.slideshow-controls button {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  pointer-events: auto;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgb(0 0 0 / 60%);
+  color: #fff;
+  cursor: pointer;
+}
+.slideshow-controls button:hover {
+  background: rgb(0 0 0 / 80%);
+}
+.slideshow-controls svg {
+  width: 18px;
+  height: 18px;
+}
+[data-playing="false"] .icon-pause,
+[data-playing="true"] .icon-play {
+  display: none;
+}
+.popup-box .btn {
+  min-height: 44px;
+  padding: 0.65rem 1rem;
+  font: inherit;
+  line-height: 1.4;
+}
+.slideshow button:focus-visible,
+.popup-box a:focus-visible {
+  outline: 3px solid #ebb919;
+  outline-offset: 4px;
+}
+.popup-wrap {
+  max-width: 1200px;
+  margin: 1.5rem auto;
+  padding: 0 1rem;
+}
+.popup-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: 1rem;
+}
+.popup-box {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 1.25rem;
+  background: #333;
+  color: #fff;
+  overflow-wrap: anywhere;
+}
+.popup-box h2 {
+  margin: 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #aaa;
+  color: #fff;
+  text-transform: uppercase;
+}
+.popup-box .btn {
+  align-self: flex-start;
+  margin-top: auto;
+  background: #1459b3;
+}
+@media (max-width: 767px) {
+  .home #home_banner {
+    padding: 1rem 0;
+    font-size: clamp(1.4rem, 5vw, 2rem);
+  }
+  .home ul.plain-list {
+    padding-left: 0;
+  }
+}
+
+/* Touch layouts: one photograph stays behind the cards until they pass. */
+.home-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  position: relative;
+  isolation: isolate;
+}
+.home-hero .slideshow {
+  grid-area: 1 / 1;
+  position: sticky;
+  top: 0;
+  align-self: start;
+  height: 100vh;
+  height: 100svh;
+}
+.home-hero .popup-wrap {
+  grid-area: 1 / 1;
+  z-index: 1;
+  width: 100%;
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: clamp(6rem, 18vh, 9rem) 1rem 2rem;
+  padding: clamp(6rem, 18svh, 9rem) 1rem 2rem;
+  pointer-events: none;
+}
+.home-hero .popup-row {
+  grid-template-columns: minmax(0, 1fr);
+}
+.home-hero .popup-box {
+  pointer-events: auto;
+  background: rgb(20 20 20 / 90%);
+}
+.slideshow-controls [data-previous],
+.slideshow-controls [data-next] {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.slideshow-controls [data-previous] {
+  left: 1rem;
+}
+.slideshow-controls [data-next] {
+  right: 1rem;
+}
+.slideshow-controls [data-rotation] {
+  top: calc(50% + 26px);
+}
+.slideshow-controls [data-rotation][data-side="left"] {
+  left: 1rem;
+}
+.slideshow-controls [data-rotation][data-side="right"] {
+  right: 1rem;
+}
+
+/* Restore the original reveal tiles for wide screens with a mouse. */
+@media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
+  .home-hero {
+    display: block;
+    height: 550px;
+    overflow: clip;
+  }
+  .home-hero .slideshow {
+    position: relative;
+    height: 100%;
+  }
+  .home-hero .popup-wrap {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-width: 1200px;
+    height: 15rem;
+    padding: 0 1rem;
+  }
+  .home-hero .popup-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    height: 100%;
+    gap: 2rem;
+  }
+  .home-hero .popup-box {
+    height: 15rem;
+    padding: 1rem;
+    background: rgb(3 3 3 / 80%);
+    transform: translateY(11.5rem);
+    transition:
+      transform 0.4s ease,
+      background-color 0.4s ease;
+  }
+  .home-hero .popup-box:hover,
+  .home-hero .popup-box:focus-within {
+    transform: translateY(0);
+    background: rgb(3 3 3 / 95%);
+  }
+  .home-hero .popup-box h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-hero .popup-box {
+    transition: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) and (max-width: 1023px),
+  (prefers-reduced-motion: reduce) and (hover: none),
+  (prefers-reduced-motion: reduce) and (pointer: coarse) {
+  .home-hero {
+    display: block;
+  }
+  .home-hero .slideshow {
+    position: relative;
+    height: 22rem;
+  }
+  .home-hero .popup-wrap {
+    padding: 1rem;
+  }
+}

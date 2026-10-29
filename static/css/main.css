@@ -69,84 +69,6 @@
     margin-top: 0;
   }
 }
-.css-slideshow--wrapper {
-  display: block;
-  height: 550px;
-}
-
-.css-slideshow {
-  position: absolute;
-  width: 100%;
-  height: 650px;
-  top: 0px;
-  left: 0px;
-  margin: 0;
-  z-index: -10;
-}
-
-.css-slideshow li span {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  color: transparent;
-  background-size: cover;
-  background-position: 50% 50%;
-  background-repeat: none;
-  opacity: 0;
-  z-index: 0;
-  animation: imageAnimation 25s linear infinite 0s;
-}
-
-.css-slideshow li:nth-child(1) span {
-  background-image: url(../img/HomeSlider3-850-2.jpg);
-  background-position: bottom;
-}
-
-.css-slideshow li:nth-child(2) span {
-  background-image: url(../img/HomeSlider4-850.jpg);
-  animation-delay: 5s;
-  background-position: top;
-}
-
-.css-slideshow li:nth-child(3) span {
-  background-image: url(../img/HomeSlider2-850.jpg);
-  background-position: bottom;
-  animation-delay: 10s;
-}
-
-.css-slideshow li:nth-child(4) span {
-  background-image: url(../img/HomeSlider7-850.jpg);
-  background-position: top;
-  animation-delay: 15s;
-}
-
-.css-slideshow li:nth-child(5) span {
-  background-image: url(../img/renewables.jpg);
-  background-position: top;
-  animation-delay: 20s;
-}
-
-@keyframes imageAnimation {
-  0% {
-    opacity: 0;
-    animation-timing-function: ease-in;
-  }
-  4% {
-    opacity: 1;
-    animation-timing-function: ease-out;
-  }
-  20% {
-    opacity: 1;
-  }
-  24% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
-}
 /*
 * Color Variables
 */
@@ -335,48 +257,6 @@ h1.headline, h2.headline, h3.headline, h4.headline {
 ul.plain-list {
   margin: 0;
   list-style-type: none;
-}
-
-.popup-wrap {
-  position: relative;
-  max-width: 1200px;
-  margin: auto;
-  top: -2rem;
-}
-
-.popup-row {
-  position: absolute;
-  display: flex;
-}
-
-.popup-box {
-  background-color: rgba(3, 3, 3, 0.8);
-  padding: 1rem;
-  margin: 0 1rem;
-  flex: 1;
-  height: 15rem;
-  transition-duration: 0.6s;
-  transition-timing-function: ease;
-}
-.popup-box:hover, .popup-box:focus {
-  background-color: rgba(3, 3, 3, 0.9);
-  transform: translateY(-11.5rem);
-}
-.popup-box h2 {
-  color: #fff;
-  text-transform: uppercase;
-  border-bottom: 1px solid #aaa;
-  margin-top: -0.2rem;
-  padding-bottom: 0.5rem;
-}
-.popup-box p {
-  color: #fff;
-}
-.popup-box .btn {
-  background-color: #1459b3;
-  color: #fff;
-  position: absolute;
-  bottom: 1rem;
 }
 
 .mfr {

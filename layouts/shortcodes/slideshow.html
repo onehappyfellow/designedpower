@@ -1,0 +1,33 @@
+<section class="slideshow" aria-label="Electrical equipment and services" aria-roledescription="carousel">
+  <div class="slideshow-slides" id="home-slides" aria-live="off">
+    {{ $slides := slice
+      (dict "image" "HomeSlider3-850-2.jpg" "alt" "Factory floor with industrial equipment")
+      (dict "image" "HomeSlider4-850.jpg" "alt" "Engineers discussing electrical wiring")
+      (dict "image" "HomeSlider2-850.jpg" "alt" "Power relays and controls")
+      (dict "image" "HomeSlider7-850.jpg" "alt" "Technician servicing machinery from a lift")
+      (dict "image" "renewables.jpg" "alt" "Utility-scale wind and solar farm")
+    }}
+    {{ range $index, $slide := $slides }}
+    <div class="slideshow-slide" role="group" aria-roledescription="slide" aria-label="{{ add $index 1 }} of {{ len $slides }}"{{ if $index }} hidden{{ end }}>
+      <img src="/img/{{ .image }}" alt="{{ .alt }}"{{ if $index }} loading="lazy"{{ else }} fetchpriority="high"{{ end }}>
+    </div>
+    {{ end }}
+  </div>
+  <div class="slideshow-controls" hidden>
+    <button type="button" data-rotation data-side="left" data-playing="false" aria-controls="home-slides" aria-label="Play slideshow">
+      <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 5 11 7-11 7Z" fill="currentColor"/></svg>
+      <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14M16 5v14" fill="none" stroke="currentColor" stroke-width="3"/></svg>
+    </button>
+    <button type="button" data-rotation data-side="right" data-playing="false" aria-controls="home-slides" aria-label="Play slideshow">
+      <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 5 11 7-11 7Z" fill="currentColor"/></svg>
+      <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14M16 5v14" fill="none" stroke="currentColor" stroke-width="3"/></svg>
+    </button>
+    <button type="button" data-previous aria-controls="home-slides" aria-label="Previous slide">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m15 5-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button type="button" data-next aria-controls="home-slides" aria-label="Next slide">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+  <span class="slideshow-status screen-reader-text" role="status" aria-atomic="true"></span>
+</section>
